@@ -1,0 +1,9 @@
+en:
+  js:
+    filters:
+      latest_created:
+        title: "Latest Created"
+        help: "topics sorted by topic creation time"
+    topic:
+      none:
+        latest_created: "There are no topics yet."

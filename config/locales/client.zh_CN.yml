@@ -1,0 +1,9 @@
+zh_CN:
+  js:
+    filters:
+      latest_created:
+        title: "最新发表"
+        help: "按话题发表时间排序"
+    topic:
+      none:
+        latest_created: "还没有话题。"
