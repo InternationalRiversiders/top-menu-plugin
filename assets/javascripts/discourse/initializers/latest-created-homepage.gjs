@@ -2,7 +2,7 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 import { setDefaultHomepage } from "discourse/lib/utilities";
 import { i18n } from "discourse-i18n";
 
-const LATEST_CREATED_HOMEPAGE_ID = 74;
+const LATEST_CREATED_HOMEPAGE_ID = 1024;
 const LATEST_CREATED_FILTER = "latest_created";
 const LATEST_CREATED_HREF = "/latest?order=created";
 

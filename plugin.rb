@@ -2,13 +2,13 @@
 
 # name: discourse-latest-created-homepage
 # about: Adds a "latest created" homepage option for user preferences.
-# version: 0.1
+# version: 0.1.1
 # authors: Jackzhang144
 
 module ::DiscourseLatestCreatedHomepage
   PLUGIN_NAME = "discourse-latest-created-homepage"
   FILTER = :latest_created
-  HOMEPAGE_ID = 74
+  HOMEPAGE_ID = 1024
 
   module TopicQueryExtension
     def list_latest_created
