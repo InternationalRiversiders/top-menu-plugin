@@ -8,11 +8,18 @@
 module ::DiscourseLatestCreatedHomepage
   PLUGIN_NAME = "discourse-latest-created-homepage"
   FILTER = :latest_created
-  HOMEPAGE_ID = 9
+  HOMEPAGE_ID = 74
 
   module TopicQueryExtension
     def list_latest_created
       create_list(:latest_created, {}, latest_results(order: "created"))
+    end
+  end
+
+  module ListControllerExtension
+    def latest_created_feed
+      params[:order] = "created"
+      latest_feed
     end
   end
 end
@@ -29,5 +36,13 @@ after_initialize do
 
   if !(TopicQuery < DiscourseLatestCreatedHomepage::TopicQueryExtension)
     TopicQuery.prepend(DiscourseLatestCreatedHomepage::TopicQueryExtension)
+  end
+
+  if !(ListController < DiscourseLatestCreatedHomepage::ListControllerExtension)
+    ListController.prepend(DiscourseLatestCreatedHomepage::ListControllerExtension)
+  end
+
+  Discourse::Application.routes.append do
+    get "/latest_created.rss" => "list#latest_created_feed", defaults: { format: :rss }
   end
 end
