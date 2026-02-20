@@ -4,7 +4,7 @@ import { i18n } from "discourse-i18n";
 
 const LATEST_CREATED_HOMEPAGE_ID = 1024;
 const LATEST_CREATED_FILTER = "latest_created";
-const LATEST_CREATED_HREF = "/latest?order=created";
+const LATEST_CREATED_HREF = "/latest_created";
 
 function parseUrl(url = "") {
   let path = url.replace(/#.*$/, "");
@@ -75,10 +75,7 @@ function initializeLatestCreatedHomepage(api) {
     customHref: latestCreatedHref,
     forceActive: (_category, _args, router) => {
       const url = parseUrl(router.currentURL);
-      return (
-        (url.lastComponent === "latest" && url.query.order === "created") ||
-        url.lastComponent === LATEST_CREATED_FILTER
-      );
+      return url.lastComponent === LATEST_CREATED_FILTER;
     },
     init: (navItem) => {
       navItem.title = i18n("filters.latest_created.help");
