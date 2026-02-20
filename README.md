@@ -2,6 +2,12 @@
 
 为 Discourse 增加一个“最新发表”默认首页选项（`/latest_created`，按话题创建时间排序）。
 
+## 实现说明
+
+- 后端：`plugin.rb` 注册 `latest_created` 过滤器并扩展 `TopicQuery`
+- 前端：`assets/javascripts/discourse/initializers/latest-created-homepage.gjs` 扩展“用户偏好 -> 界面”中的默认首页选项
+- 国际化：`config/locales/*.yml`
+
 ## 功能
 
 - 新增过滤器：`latest_created`
